@@ -1,0 +1,55 @@
+##### chiamata GET
+GET http://localhost:5050/posts
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicHJvdmEiLCJzdXJuYW1lIjoicHJvdmEiLCJlbWlhbCI6InByb3ZhZW1haWxAZ21haWwuY29tIiwiZGF0ZU9mQmlydGgiOiIyMi8wNC8xOTg1IiwiYXZhdGFyIjoiaHR0cHM6Ly93d3cuc2VsbGEuaXQvZG9jdW1lbnRzLzIwMTI2LzM5MTU4MzEvUDQ0X2hlcm9fcHJpdmF0aV9wcm90ZXppb25lX3BlcnNvbmFpbkNoaWFyby5wbmcvNTBjMzhhOTEtZDlkOC01Y2MyLTU5Y2QtNzEyZTY2YjVmNjJjP3Q9MTYwNzMzODU5MTM4NSIsImlhdCI6MTY5MDg5NjAzMywiZXhwIjoxNjkwOTgyNDMzfQ.yB7A4Ff3PZNVHtREVxy_i6W7aZ1mpOMAwu86rU9uZ8o
+
+##### ricerca post da utore 
+GET http://localhost:5050/authors/64bacd60d0259df562196a19/posts
+
+##### tutti i post con uno specifico titolo
+GET http://localhost:5050/posts/title?postTitle=sa
+
+##### post da id specifico
+GET http://localhost:5050/posts/64b172b56f4d367462625257
+
+##### nuovo post
+POST http://localhost:5050/posts HTTP/1.1
+Content-Type: application/json
+
+{
+    "category": "science",
+    "title": "Moon",
+    "cover": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/260px-FullMoon2010.jpg",
+    "readTime":{
+        "value": 14,
+        "unit": "minutes"
+    },
+    "author": "64d215e7bb6c7e616819bd34",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+}
+
+##### modifica post specifico id
+PUT http://localhost:5050/posts/64b292da234c5812f42c857e HTTP/1.1
+Content-Type: application/json
+
+{
+    "category": "horror",
+    "title": "saw",
+    "cover": "http://miaimmagine.jpg",
+    "readTime":{
+        "value": 14,
+        "unit": "minutes"
+    },
+    "author": "64bacd60d0259df562196a19",
+    "content": "ciao come va"
+}
+
+
+##### cancellare post 
+DELETE  http://localhost:5050/posts/64b291a545e6ec43e681444d
+
+##### get commenti post specifico /posts/:postId/comments
+GET http://localhost:5050/posts/64b172b56f4d367462625257/comments
+
+##### get commenti specifici di post specifico /posts/:postId/comments/:commentId
+GET http://localhost:5050/posts/64b172b56f4d367462625257/comments/64b172b56f4d367462625257

@@ -1,0 +1,16 @@
+GET http://localhost:5050/resources
+
+#####
+GET http://localhost:5050/resources/isActive
+
+#####
+GET http://localhost:5050/resources/ageGreaterThan?age=39
+
+#####
+GET http://localhost:5050/resources/betweenTheAgesOf?age1=26&age2=30
+
+#####
+GET http://localhost:5050/resources/eyesEqualTo?eyes1=green&eyes2=blue
+
+#####
+GET http://localhost:5050/resources/company?company=FITCORE
